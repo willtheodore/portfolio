@@ -28,7 +28,7 @@ module.exports = (env) => {
 					use: ["style-loader", "css-loader", "sass-loader"],
 				},
 				{
-					test: /\.(woff|woff2|eot|ttf|svg|jpe?g|png)$/,
+					test: /\.(woff|woff2|eot|ttf|svg|jpe?g|png|pdf)$/,
 					use: {
 						loader: "file-loader",
 					},
