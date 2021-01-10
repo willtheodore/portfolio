@@ -1,19 +1,45 @@
 export default {
 	nav: {
-		color: "white",
-		fontSize: "24px",
-		fontWeight: "semibold",
+		fontSize: "30px",
+		fontWeight: "normal",
+		textTransform: "uppercase",
 	},
 	navActive: {
-		color: "white",
+		fontSize: "30px",
+		fontWeight: "normal",
 		marginLeft: "10%",
-		borderBottom: "2px solid #3182CE",
-		fontSize: "24px",
-		fontWeight: "semibold",
+		textTransform: "uppercase",
 	},
 	headline: {
-		color: "white",
-		fontSize: "128px",
+		fontFamily: "protipo",
+		fontSize: "136px",
 		fontWeight: "bold",
+	},
+	subHeadline: {
+		fontSize: "45px",
+		fontWeight: "normal",
+	},
+	headerCaps: {
+		fontSize: "32px",
+		fontWeight: "bold",
+		textTransform: "uppercase",
+	},
+	header: {
+		fontSize: "32px",
+		fontWeight: "bold",
+	},
+	subHeader: {
+		fontSize: "32px",
+		fontWeight: "regular",
+	},
+	smallCaps: {
+		fontSize: "18px",
+		fontWeight: "normal",
+		textTransform: "uppercase",
+		letterSpacing: "180%",
+	},
+	body: {
+		fontSize: "20px",
+		fontWeight: "normal",
 	},
 };

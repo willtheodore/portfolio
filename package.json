@@ -28,10 +28,13 @@
 		"react-router-dom": "^5.2.0"
 	},
 	"devDependencies": {
+		"@babel/preset-react": "^7.12.10",
+		"@mdx-js/loader": "^1.6.22",
 		"@types/react": "^17.0.0",
 		"@types/react-dom": "^17.0.0",
 		"@types/react-pdf": "^5.0.0",
 		"@types/react-router-dom": "^5.1.6",
+		"babel-loader": "^8.2.2",
 		"css-loader": "^5.0.1",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^4.5.0",

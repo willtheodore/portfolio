@@ -14,8 +14,15 @@ module.exports = (env) => {
 		resolve: {
 			extensions: [".ts", ".tsx", ".js"],
 		},
+		node: {
+			fs: "empty",
+		},
 		module: {
 			rules: [
+				{
+					test: /\.mdx?$/,
+					use: ["babel-loader", "@mdx-js/loader"],
+				},
 				{
 					test: /\.(.d)?(j|t)sx?$/,
 					use: {

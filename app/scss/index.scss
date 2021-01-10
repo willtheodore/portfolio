@@ -1,6 +1,9 @@
 #app {
 	height: 100vh;
 	width: 100vw;
+	font-family: "protipo", Helvertica, Arial, sans-serif;
+	font-weight: normal;
+	color: white;
 }
 
 .sidebar {
@@ -14,6 +17,10 @@
 		80% 100%,
 		calc(80% - 10px) 100%
 	);
+}
+
+.drift-right {
+	transition: margin-left 300ms ease-in-out;
 }
 
 .drift-right:hover {

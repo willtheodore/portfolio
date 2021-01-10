@@ -1,9 +1,11 @@
-import { Flex, List, ListItem, Box, chakra } from "@chakra-ui/react";
+import { Flex, List, ListItem, Box } from "@chakra-ui/react";
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { ChakraLink as Link } from "./chakra";
 import { parsePath } from "../utils/parsing";
 
 export default function Sidebar() {
+	const currentLink = React.useState<string>(parsePath(document.location)[0]);
+
 	return (
 		<Flex
 			className="sidebar"
@@ -14,11 +16,11 @@ export default function Sidebar() {
 			position="fixed"
 		>
 			<List spacing={3} w="60%" p="10%" m="20%">
-				<NavLink title="Home" />
-				<NavLink title="About" />
-				<NavLink title="Resume" />
-				<NavLink title="Projects" />
-				<NavLink title="Contact" />
+				<NavLink title="Home" currentLink={currentLink} />
+				<NavLink title="About" currentLink={currentLink} />
+				<NavLink title="Resume" currentLink={currentLink} />
+				<NavLink title="Projects" currentLink={currentLink} />
+				<NavLink title="Contact" currentLink={currentLink} />
 			</List>
 			<Box
 				className="sidebar-accent"
@@ -33,18 +35,11 @@ export default function Sidebar() {
 
 interface NavLinkProps {
 	title: string;
+	currentLink: [string, React.Dispatch<React.SetStateAction<string>>];
 }
 
-function NavLink({ title }: NavLinkProps) {
-	const [isActive, setIsActive] = React.useState<boolean>(false);
-
-	React.useEffect(() => {
-		const path = parsePath(document.location);
-		setIsActive(
-			path[0] === title.toLowerCase() ||
-				(title === "Home" && path[0] === undefined)
-		);
-	}, [document.location]);
+function NavLink({ title, currentLink }: NavLinkProps) {
+	const isActive = currentLink[0] === title.toLowerCase();
 
 	return (
 		<ListItem
@@ -52,12 +47,13 @@ function NavLink({ title }: NavLinkProps) {
 			alignItems="center"
 			className={isActive ? "" : "drift-right"}
 		>
-			<chakra.a
+			<Link
 				textStyle={isActive ? "navActive" : "nav"}
-				href={title === "Home" ? "/" : `./${title.toLowerCase()}`}
+				to={title === "Home" ? "/" : `./${title.toLowerCase()}`}
+				onClick={() => currentLink[1](title.toLowerCase())}
 			>
 				{title}
-			</chakra.a>
+			</Link>
 		</ListItem>
 	);
 }
