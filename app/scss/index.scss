@@ -6,6 +6,10 @@
 	color: white;
 }
 
+a {
+	text-decoration-thickness: 3px;
+}
+
 .sidebar {
 	clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
 }
@@ -19,6 +23,36 @@
 	);
 }
 
+.single-line {
+	clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+}
+
+.page-header {
+	clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.gray-bg-hover {
+	transition: background-color 300ms ease-in-out;
+}
+
+.gray-bg-hover:hover {
+	transition: background-color 300ms ease-in-out;
+	background-color: #676a74;
+	cursor: pointer;
+}
+
+.uses-color-theme {
+	transition: background-color 300ms ease-in-out;
+}
+
+.drift-down {
+	transition: margin-top 600ms ease-in-out;
+}
+
+.drift-down:hover {
+	transition: margin-top 600ms ease-in-out;
+}
+
 .drift-right {
 	transition: margin-left 300ms ease-in-out;
 }
@@ -26,4 +60,8 @@
 .drift-right:hover {
 	margin-left: 10%;
 	transition: margin-left 300ms ease-in-out;
+}
+
+.no-mb {
+	margin-bottom: 0;
 }

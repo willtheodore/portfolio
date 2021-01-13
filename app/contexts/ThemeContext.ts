@@ -4,7 +4,6 @@ export enum Theme {
 	blue = "#5480BC",
 	red = "#CC5E5E",
 	purple = "#8E61C3",
-	yellow = "#EAE454",
 	green = "#5AB97B",
 }
 

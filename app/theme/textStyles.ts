@@ -20,26 +20,27 @@ export default {
 		fontWeight: "normal",
 	},
 	headerCaps: {
-		fontSize: "32px",
+		fontSize: "26px",
 		fontWeight: "bold",
 		textTransform: "uppercase",
 	},
 	header: {
-		fontSize: "32px",
+		fontSize: "26px",
 		fontWeight: "bold",
 	},
 	subHeader: {
-		fontSize: "32px",
-		fontWeight: "regular",
+		fontSize: "18px",
+		fontWeight: "normal",
 	},
 	smallCaps: {
 		fontSize: "18px",
-		fontWeight: "normal",
+		fontWeight: "light",
 		textTransform: "uppercase",
-		letterSpacing: "180%",
+		letterSpacing: "3px",
 	},
 	body: {
-		fontSize: "20px",
+		fontSize: "18px",
 		fontWeight: "normal",
+		lineHeight: "125%",
 	},
 };
