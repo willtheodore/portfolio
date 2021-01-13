@@ -1,4 +1,4 @@
-import { chakra, Flex, Icon, Text } from "@chakra-ui/react";
+import { chakra, Flex, Icon, Text, useBreakpointValue } from "@chakra-ui/react";
 import {
 	FaInstagram,
 	FaTwitter,
@@ -11,16 +11,20 @@ import { IconType } from "react-icons";
 import ThemeContext from "../contexts/ThemeContext";
 
 export function Footer() {
+	const isMobile = useBreakpointValue({ base: true, md: false });
+
 	return (
 		<Flex
 			direction="row"
-			ml="-130px"
-			pl="150px"
+			ml={["0", "-130px"]}
+			pr="5px"
+			pl={["5px", "150px"]}
 			bg="darkGray"
 			h="80px"
 			alignItems="center"
+			justifyContent={{ base: "space-around", md: "flex-start" }}
 		>
-			<Text textStyle="body" mr="20px">
+			<Text fontSize={["4vw", "20px"]} textStyle="body" mr={["0", "20px"]}>
 				© Will Theodore 2021
 			</Text>
 			<MediaLink
@@ -54,7 +58,7 @@ function MediaLink({ url, icon }: MediaLinkProps) {
 			className="uses-color-theme"
 			borderRadius="md"
 			padding="5px 8px 8px"
-			mr="20px"
+			mr={["0", "20px"]}
 			_hover={{
 				backgroundColor: theme,
 				transition: "background-color 300ms ease-in-out",
@@ -62,7 +66,7 @@ function MediaLink({ url, icon }: MediaLinkProps) {
 			target="__blank"
 			href={url}
 		>
-			<Icon aria-label="Linked in Icon" as={icon} boxSize="20px" />
+			<Icon aria-label="Linked in Icon" as={icon} boxSize={["4vw", "20px"]} />
 		</chakra.a>
 	);
 }

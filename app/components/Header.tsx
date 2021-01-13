@@ -23,7 +23,7 @@ export default function Header({ title }: HeaderProps) {
 			<Text
 				fontFamily="protipo"
 				fontWeight="bold"
-				fontSize="70px"
+				fontSize="5vw"
 				textTransform="uppercase"
 				letterSpacing="7px"
 			>

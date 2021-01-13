@@ -1,4 +1,4 @@
-import { Box, Grid } from "@chakra-ui/react";
+import { Box, Grid, useBreakpoint, useBreakpointValue } from "@chakra-ui/react";
 import * as React from "react";
 import { Theme } from "../../contexts/ThemeContext";
 import { Footer } from "../chakra";
@@ -15,11 +15,13 @@ export default function LayoutContainer({
 	children,
 	toggleFunction,
 }: LayoutContainerProps) {
+	const isNotMobile = useBreakpointValue({ base: false, md: true });
+
 	return (
-		<Grid h="100%" w="100%" templateColumns="30% 1fr">
+		<Grid h="100%" w="100%" templateColumns={isNotMobile ? `30% 1fr` : "1fr"}>
 			<Sidebar />
-			<ThemeSelector toggleTheme={toggleFunction} />
-			<Grid templateRows="1fr auto" gridColumn="2/3">
+			{isNotMobile && <ThemeSelector toggleTheme={toggleFunction} />}
+			<Grid templateRows="1fr auto" gridColumn={isNotMobile ? "2/3" : ""}>
 				<Box bg="lightGray" gridRow="1/2" pl="6vw" ml="-6vw" h="100%">
 					{children}
 				</Box>
