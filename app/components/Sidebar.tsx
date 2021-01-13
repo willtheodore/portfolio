@@ -1,4 +1,4 @@
-import { Flex, List, ListItem, Box } from "@chakra-ui/react";
+import { Flex, List, ListItem, Box, Grid } from "@chakra-ui/react";
 import * as React from "react";
 import { ChakraLink as Link } from "./chakra";
 import { parsePath } from "../utils/parsing";
@@ -9,16 +9,17 @@ export default function Sidebar() {
 	const theme = React.useContext(ThemeContext);
 
 	return (
-		<Flex
+		<Grid
+			templateColumns="1fr 3fr 1fr"
+			templateRows="1fr auto 1fr"
 			className="sidebar"
 			w="30%"
 			h="100%"
 			bg="darkGray"
-			alignItems="center"
 			position="fixed"
 			zIndex="banner"
 		>
-			<List spacing={3} w="60%" p="10%" m="20%">
+			<List spacing={3} gridRow="2/3" gridColumn="2/3">
 				<NavLink title="Home" currentLink={currentLink} />
 				<NavLink title="Resume" currentLink={currentLink} />
 				<NavLink title="Projects" currentLink={currentLink} />
@@ -31,7 +32,7 @@ export default function Sidebar() {
 				w="30%"
 				h="100%"
 			/>
-		</Flex>
+		</Grid>
 	);
 }
 
@@ -52,13 +53,14 @@ function NavLink({ title, currentLink }: NavLinkProps) {
 			<Flex direction="column">
 				<Link
 					textStyle={isActive ? "navActive" : "nav"}
+					fontSize={["15px", "15px", "20px", "30px"]}
 					to={title === "Home" ? "/" : `./${title.toLowerCase()}`}
 					onClick={() => currentLink[1](title.toLowerCase())}
 				>
 					{title}
 				</Link>
 				{isActive ? (
-					<Box ml="10%" w="80%" h="3px" backgroundColor={theme} />
+					<Box ml="10%" w="60%" h="3px" backgroundColor={theme} />
 				) : (
 					<Box />
 				)}

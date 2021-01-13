@@ -1,13 +1,14 @@
-import { Text, Flex, Heading } from "@chakra-ui/react";
+import { Text, Grid, Flex, Heading } from "@chakra-ui/react";
 
-<Flex
+<Grid
 	direction="column"
-	pt={(window.innerHeight - 195) / 2}
-	pl={5}
-	pb={(window.innerHeight - 195) / 2}
+	w="100%"
+	h="100%"
+	templateRows="1fr auto auto 1fr"
 >
-	<Heading textStyle="headline">Will Theodore</Heading>
-	<Text textStyle="subHeadline" mt="-30px">
+	<Heading display="inline-block" gridRow="2/3" fontFamily="protipo" fontWeight="bold" fontSize={["60px", "60px", "60px", "90px"]}>Will Theodore</Heading>
+	<Text display="inline-block" gridRow="3/4"  fontSize={["20px", "20px", "40px", "50px"]}>
 		CS Student and Freelance Developer
 	</Text>
-</Flex>
+
+</Grid>
