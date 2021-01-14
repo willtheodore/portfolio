@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import * as React from "react";
 import ThemeContext from "../contexts/ThemeContext";
 
@@ -10,11 +10,12 @@ export default function Header({ title }: HeaderProps) {
 	const theme = React.useContext(ThemeContext);
 
 	return (
-		<Box
+		<Flex
 			className="page-header"
 			position="absolute"
 			top="25px"
-			padding="10px 40px 10px 60px"
+			padding={["10px 40px 10px 60px"]}
+			mt={{ base: "10vh", lg: "0" }}
 			ml="-40px"
 			bg="darkGray"
 			borderBottom={`5px solid ${theme}`}
@@ -23,12 +24,12 @@ export default function Header({ title }: HeaderProps) {
 			<Text
 				fontFamily="protipo"
 				fontWeight="bold"
-				fontSize="5vw"
+				fontSize={{ base: "30px", sm: "40px", lg: "60px" }}
 				textTransform="uppercase"
 				letterSpacing="7px"
 			>
 				{title}
 			</Text>
-		</Box>
+		</Flex>
 	);
 }

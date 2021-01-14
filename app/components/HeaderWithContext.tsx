@@ -15,18 +15,25 @@ export function HeaderWithContext({
 	return (
 		<Grid
 			templateColumns="1fr 1fr"
+			templateRows="auto auto"
+			alignItems="baseline"
 			ml="22px"
 			mr="50px"
 			mb={noMB ? "0" : "10px"}
 		>
-			<Text gridColumn="1/2" textStyle="header">
+			<Text
+				gridColumn={{ base: "1/3", lg: "1/2" }}
+				gridRows={{ base: "1/2", lg: "1/3" }}
+				textStyle="header"
+			>
 				{title}
 			</Text>
 			<Text
-				gridColumn="2/3"
+				gridColumn={{ base: "1/3", lg: "2/3" }}
+				gridRows={{ base: "2/3", lg: "1/3" }}
 				textStyle="subHeader"
 				fontWeight="light"
-				textAlign="end"
+				textAlign={{ base: "start", lg: "end" }}
 			>
 				{context}
 			</Text>

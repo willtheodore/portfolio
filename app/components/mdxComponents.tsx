@@ -16,13 +16,14 @@ export function H1(props: MDXProviderProps) {
 
 	return (
 		<Box margin="50px 30px 20px 22px">
-			<Text display="inline" textStyle="headerCaps" ref={textRef} {...props} />
-			<Box
-				className="uses-color-theme"
-				ml={width ? -100 : 0}
-				w={width ? width + 100 : 0}
-				h="5px"
-				backgroundColor={theme}
+			<Text
+				pl="200px"
+				ml="-200px"
+				borderBottom={`4px solid ${theme}`}
+				display="inline"
+				textStyle="headerCaps"
+				ref={textRef}
+				{...props}
 			/>
 		</Box>
 	);
@@ -39,7 +40,7 @@ export function H3(props: MDXProviderProps) {
 			textStyle="subHeader"
 			{...props}
 			ml="22px"
-			mb="20px"
+			mb={{ base: "40px", lg: "20px" }}
 			display="block"
 		/>
 	);
@@ -47,13 +48,19 @@ export function H3(props: MDXProviderProps) {
 
 export function P(props: MDXProviderProps) {
 	return (
-		<Text display="block" textStyle="body" ml="22px" mr="50px" {...props} />
+		<Text
+			display="block"
+			textStyle="body"
+			ml="22px"
+			mr={{ base: "20px", lg: "50px" }}
+			{...props}
+		/>
 	);
 }
 
 export function Bullet(props: MDXProviderProps) {
 	return (
-		<Grid templateColumns="20px 1fr" ml="22px" mr="50px" mb="10px">
+		<Grid templateColumns="20px 1fr" ml="22px" mr={["0", "50px"]} mb="10px">
 			<Grid gridColumn="1/2" placeItems="center">
 				<Text>•</Text>
 			</Grid>
