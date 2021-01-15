@@ -1,4 +1,11 @@
-import { Box, chakra, Flex, Grid, Text } from "@chakra-ui/react";
+import {
+	Box,
+	chakra,
+	Flex,
+	Grid,
+	Text,
+	useBreakpointValue,
+} from "@chakra-ui/react";
 import * as React from "react";
 import ThemeContext from "../contexts/ThemeContext";
 import chevronRight from "../assets/chevronRight.svg";
@@ -6,18 +13,19 @@ import chevronLeft from "../assets/chevronLeft.svg";
 
 interface ProjectShowcaseProps {
 	title: string;
-	url: string;
 	nodes: number;
+	url: string;
 	children: React.ReactChildren;
 }
 
 export default function ProjectShowcase({
 	title,
-	url,
 	nodes,
 	children,
+	url,
 }: ProjectShowcaseProps) {
 	const theme = React.useContext(ThemeContext);
+	const isMobile = useBreakpointValue({ base: true, md: false });
 	const [selectedNode, setSelectedNode] = React.useState<number>(0);
 	const [slides, setSlides] = React.useState<React.ReactChildren[] | null>(
 		null
@@ -45,100 +53,85 @@ export default function ProjectShowcase({
 		}
 	};
 
-	const getKeys = (x: number): number[] => {
-		let result = [];
-		for (let i = 0; i < x; i++) {
-			result.push(i);
-		}
-		return result;
-	};
-	const keys = getKeys(nodes);
+	if (isMobile)
+		return (
+			<Flex direction="column" mb="20px">
+				<Text textStyle="headerCaps" gridRow="1/2" pl="20px">
+					{title}
+				</Text>
+
+				<Flex
+					w="100%"
+					p="0 20px 20px"
+					direction="column"
+					borderTop={`5px solid ${theme}`}
+					bgColor="darkGray"
+					className="uses-color-theme"
+				>
+					{slides && slides[selectedNode]}
+					{nodes > 1 && (
+						<Flex direction="row" alignItems="center" margin="0 auto">
+							<Directional
+								photoURL={chevronLeft}
+								onClick={moveBackward}
+								size={8}
+							/>
+							<CarouselIndicator nodes={nodes} selectedNode={selectedNode} />
+							<Directional
+								photoURL={chevronRight}
+								onClick={moveForward}
+								size={8}
+							/>
+						</Flex>
+					)}
+				</Flex>
+			</Flex>
+		);
 
 	return (
-		<Grid templateRows="auto 5px 1fr" pl="22px">
+		<Grid templateRows="auto auto auto" pl="22px" mb="20px">
 			<Text textStyle="headerCaps" gridRow="1/2">
 				{title}
 			</Text>
-			<Box
-				className="uses-color-theme"
-				ml="-100px"
-				pr="100px"
+
+			<Flex
+				direction="row"
+				alignItems="center"
+				borderTop={`5px solid ${theme}`}
 				gridRow="2/3"
-				backgroundColor={theme}
-			/>
-
-			<Grid
-				templateRows="20px 1fr 80px"
-				templateColumns="60px 1fr 60px"
-				gridRow="3/4"
-				bg="darkGray"
-				pl="100px"
-				pr="40px"
-				ml="-100px"
+				paddingLeft="300px"
+				paddingTop="30px"
+				marginLeft="-300px"
+				bgColor="darkGray"
 			>
-				<Grid gridRow="2/3" gridColumn="1/2" placeItems="center">
-					{nodes > 1 && (
-						<chakra.img
-							src={chevronLeft}
+				{nodes > 1 && (
+					<Grid templateRows="1fr auto 1fr">
+						<Directional
+							gridRow="2/3"
+							photoURL={chevronLeft}
 							onClick={moveBackward}
-							padding="10px"
-							borderRadius="md"
-							transition="background-color 300ms ease-in-out"
-							_hover={{
-								cursor: "pointer",
-								backgroundColor: theme,
-								transition: "background-color 300ms ease-in-out",
-							}}
+							size={80}
 						/>
-					)}
-				</Grid>
+					</Grid>
+				)}
 
-				<Grid gridRow="2/3" gridColumn="3/4" placeItems="center">
-					{nodes > 1 && (
-						<chakra.img
-							src={chevronRight}
-							onClick={moveForward}
-							padding="10px"
-							borderRadius="md"
-							transition="background-color 300ms ease-in-out"
-							_hover={{
-								cursor: "pointer",
-								backgroundColor: theme,
-								transition: "background-color 300ms ease-in-out",
-							}}
-						/>
-					)}
-				</Grid>
-
-				<Flex gridRow="2/3" gridColumn="2/3" alignItems="center">
+				<Flex direction="column">
 					{slides && slides[selectedNode]}
-				</Flex>
+					<Grid
+						templateColumns="60% 40%"
+						bg="darkGray"
+						paddingLeft="300px"
+						paddingBottom="30px"
+						marginLeft="-300px"
+					>
+						<Flex w="100%" justifyContent="center">
+							{nodes > 1 && (
+								<CarouselIndicator nodes={nodes} selectedNode={selectedNode} />
+							)}
+						</Flex>
 
-				<Grid templateColumns="60% 40%" gridRow="3/4" gridColumn="2/3">
-					<Flex gridColumn="1/2" direction="row" margin="0 auto">
-						{nodes > 1 &&
-							keys.map((node: number) => (
-								<Box
-									className="uses-color-theme"
-									bg={node === selectedNode ? theme : "lightGray"}
-									w="20px"
-									h="20px"
-									margin="0 2px"
-									borderRadius="50%"
-									key={node}
-								/>
-							))}
-					</Flex>
-
-					<Flex gridColumn="2/3" direction="column">
-						<Box
-							className="uses-color-theme"
-							h="5px"
-							w="30px"
-							mb="20px"
-							backgroundColor={theme}
-						/>
 						<chakra.a
+							gridColumn="2/3"
 							fontWeight="bold"
 							textStyle="body"
 							target="__blank"
@@ -150,33 +143,133 @@ export default function ProjectShowcase({
 						>
 							{url}
 						</chakra.a>
-					</Flex>
-				</Grid>
-			</Grid>
+					</Grid>
+				</Flex>
+
+				{nodes > 1 && (
+					<Grid templateRows="1fr auto 1fr" mr="20px">
+						<Directional
+							gridRow="2/3"
+							photoURL={chevronRight}
+							onClick={moveForward}
+							size={80}
+						/>
+					</Grid>
+				)}
+			</Flex>
 		</Grid>
+	);
+}
+
+interface CarouselIndicatorProps {
+	nodes: number;
+	selectedNode: number;
+}
+
+function CarouselIndicator({ nodes, selectedNode }: CarouselIndicatorProps) {
+	const getKeys = (x: number): number[] => {
+		let result = [];
+		for (let i = 0; i < x; i++) {
+			result.push(i);
+		}
+		return result;
+	};
+	const keys = getKeys(nodes);
+	const theme = React.useContext(ThemeContext);
+
+	return (
+		<Flex>
+			{keys.map((node: number) => (
+				<Box
+					className="uses-color-theme"
+					bg={node === selectedNode ? theme : "lightGray"}
+					w="20px"
+					h="20px"
+					margin="0 2px"
+					borderRadius="50%"
+					key={node}
+				/>
+			))}
+		</Flex>
+	);
+}
+
+interface DirectionalProps {
+	photoURL: string;
+	gridRow?: string;
+	size: number;
+	onClick: VoidFunction;
+}
+
+function Directional({ photoURL, onClick, size, gridRow }: DirectionalProps) {
+	const theme = React.useContext(ThemeContext);
+
+	return (
+		<chakra.img
+			gridRow={gridRow}
+			src={photoURL}
+			onClick={onClick}
+			resize="both"
+			width={size}
+			padding="10px"
+			borderRadius="md"
+			transition="background-color 300ms ease-in-out"
+			_hover={{
+				cursor: "pointer",
+				backgroundColor: theme,
+				transition: "background-color 300ms ease-in-out",
+			}}
+		/>
 	);
 }
 
 interface ProjectSlideProps {
 	photoURL: string;
+	solo?: boolean;
 	children: React.ReactChildren;
 }
 
-export function ProjectSlide({ photoURL, children }: ProjectSlideProps) {
+export function ProjectSlide({ photoURL, children, solo }: ProjectSlideProps) {
 	const theme = React.useContext(ThemeContext);
+	const isMobile = useBreakpointValue({ base: true, md: false });
+
+	if (isMobile)
+		return (
+			<Flex direction="column" alignItems="center">
+				<chakra.img
+					src={photoURL}
+					resize="both"
+					border={`5px solid ${theme}`}
+					w="calc(100%- 40px)"
+					m="20px 0"
+				/>
+				<Text textStyle="body" lineHeight="150%">
+					{children}
+				</Text>
+				<Box m="20px 0" w="20px" h="4px" bgColor={theme} />
+			</Flex>
+		);
 
 	return (
-		<Flex direction="row" alignItems="center">
+		<Grid templateColumns="60% 40%" alignItems="center">
 			<chakra.img
+				gridColumn="1/2"
 				src={photoURL}
-				m="20px"
 				resize="both"
-				w="calc(60% - 40px)"
 				border={`5px solid ${theme}`}
+				w="calc(100% - 40px)"
+				mt="20px"
+				mb="20px"
+				mr="20px"
+				ml={solo ? "0" : "20px"}
 			/>
-			<Text textStyle="body" lineHeight="150%">
-				{children}
-			</Text>
-		</Flex>
+
+			<Box gridColumn="2/3" pr={solo ? "20px" : "0"}>
+				<Text textStyle="body" lineHeight="150%">
+					{children}
+				</Text>
+				<Box m="20px 0" w="20px" h="4px" bgColor={theme} />
+			</Box>
+		</Grid>
 	);
 }
