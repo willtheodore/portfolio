@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Visualizer = require("webpack-visualizer-plugin");
 
 module.exports = (env) => {
 	const nodeEnvironment = env.NODE_ENV;
@@ -46,6 +47,7 @@ module.exports = (env) => {
 			new HtmlWebpackPlugin({
 				template: "app/index.html",
 			}),
+			new Visualizer(),
 		],
 		devtool: "source-map",
 		mode: nodeEnvironment === "production" ? "production" : "development",
