@@ -5,14 +5,12 @@ import {
 	FaLinkedin,
 	FaFacebook,
 	FaGithub,
-} from "react-icons/fa";
+} from "../assets/icons/reactIcons";
 import * as React from "react";
 import { IconType } from "react-icons";
 import ThemeContext from "../contexts/ThemeContext";
 
 export function Footer() {
-	const isMobile = useBreakpointValue({ base: true, md: false });
-
 	return (
 		<Flex
 			direction="row"
