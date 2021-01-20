@@ -7,7 +7,6 @@ import {
 	FaGithub,
 } from "../assets/icons/reactIcons";
 import * as React from "react";
-import { IconType } from "react-icons";
 import ThemeContext from "../contexts/ThemeContext";
 
 export function Footer() {
@@ -45,7 +44,7 @@ export function Footer() {
 
 interface MediaLinkProps {
 	url: string;
-	icon: IconType;
+	icon: any;
 }
 
 function MediaLink({ url, icon }: MediaLinkProps) {
