@@ -1,4 +1,4 @@
-import { GenIcon } from "./IconBase.js";
+import { GenIcon } from "./iconBase.js";
 export function FaInstagram(props: any) {
 	return GenIcon({
 		tag: "svg",
