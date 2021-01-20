@@ -7,10 +7,10 @@ import { MDXProvider } from "@mdx-js/react";
 
 import "./scss/index.scss";
 import theme from "./theme/theme";
-import Home from "./pages/Home.mdx";
-import Resume from "./pages/Resume.mdx";
-import Projects from "./pages/Projects.mdx";
-import Contact from "./pages/Contact.mdx";
+const Home = React.lazy(() => import("./pages/Home.mdx"));
+const Resume = React.lazy(() => import("./pages/Resume.mdx"));
+const Projects = React.lazy(() => import("./pages/Projects.mdx"));
+const Contact = React.lazy(() => import("./pages/Contact.mdx"));
 import LayoutContainer from "./components/layout/LayoutContainer";
 
 import { H1, H2, H3, P, Bullet, Spacer } from "./components/mdxComponents";
@@ -33,16 +33,18 @@ function App() {
 		<ChakraProvider theme={extendTheme(theme)}>
 			<ThemeProvider value={colorTheme}>
 				<MDXProvider components={components}>
-					<Router>
-						<LayoutContainer toggleFunction={toggleColorTheme}>
-							<Switch>
-								<Route exact path="/resume" component={Resume} />
-								<Route exact path="/projects" component={Projects} />
-								<Route exact path="/contact" component={Contact} />
-								<Route path="/" component={Home} />
-							</Switch>
-						</LayoutContainer>
-					</Router>
+					<React.Suspense fallback={<div className="fallback"></div>}>
+						<Router>
+							<LayoutContainer toggleFunction={toggleColorTheme}>
+								<Switch>
+									<Route exact path="/resume" component={Resume} />
+									<Route exact path="/projects" component={Projects} />
+									<Route exact path="/contact" component={Contact} />
+									<Route path="/" component={Home} />
+								</Switch>
+							</LayoutContainer>
+						</Router>
+					</React.Suspense>
 				</MDXProvider>
 			</ThemeProvider>
 		</ChakraProvider>
