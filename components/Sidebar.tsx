@@ -95,6 +95,7 @@ function NavLink({ title, currentLink }: NavLinkProps) {
         <Link href={title === "Home" ? "/" : `./${title.toLowerCase()}`}>
           <chakra.a
             textStyle={isActive && breakpoint ? "navActive" : "nav"}
+            cursor="pointer"
             fontSize={["15px", "15px", "20px", "30px"]}
             onClick={() => currentLink[1](title.toLowerCase())}
             textDecoration={isActive && !breakpoint ? `underline ${theme}` : ""}

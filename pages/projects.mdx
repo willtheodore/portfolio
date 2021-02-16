@@ -1,13 +1,8 @@
 import Header from "../components/Header.tsx";
 import { Box } from "@chakra-ui/react";
 import ProjectShowcase, {
-	ProjectSlide,
+  ProjectSlide,
 } from "../components/ProjectShowcase.tsx";
-
-import bluffs1 from "../assets/bluffs1.png";
-import bluffs2 from "../assets/bluffs2.png";
-import bluffs3 from "../assets/bluffs3.png";
-import portfolio from "../assets/portfolio.png";
 
 <Header title="Projects" />
 <Box h="170px" />
@@ -15,24 +10,24 @@ import portfolio from "../assets/portfolio.png";
 ---
 
 <ProjectShowcase title="Bedford Bluffs" nodes={3} url="www.bedfordbluffs.com">
-	<ProjectSlide photoURL={bluffs1}>
-		This project was commissioned by a local swim and tennis club. Their old
-		website was outdated and in need of an update. I built a new one that
-		included interactive web application features such as posting and
-		commenting, multiple user authentication levels, and an interactive
-		calendar.
-	</ProjectSlide>
-	<ProjectSlide photoURL={bluffs2}>
-		The project was built using React JS and Google Cloud Platform. An account
-		is required to access the “members” tab which contains the interactive
-		features used in the operations of the club.
-	</ProjectSlide>
-	<ProjectSlide photoURL={bluffs3}>
-		The Admin Center is only accessible to users designated as an admin. It
-		contains pages to create and edit posts, manage calendar events, authorize
-		other admins, and upload files to create job postings or update the
-		membership application file.
-	</ProjectSlide>
+  <ProjectSlide photoURL="/images/bluffs1.png">
+    This project was commissioned by a local swim and tennis club. Their old
+    website was outdated and in need of an update. I built a new one that
+    included interactive web application features such as posting and
+    commenting, multiple user authentication levels, and an interactive
+    calendar.
+  </ProjectSlide>
+  <ProjectSlide photoURL="/images/bluffs2.png">
+    The project was built using React JS and Google Cloud Platform. An account
+    is required to access the “members” tab which contains the interactive
+    features used in the operations of the club.
+  </ProjectSlide>
+  <ProjectSlide photoURL="/images/bluffs3.png">
+    The Admin Center is only accessible to users designated as an admin. It
+    contains pages to create and edit posts, manage calendar events, authorize
+    other admins, and upload files to create job postings or update the
+    membership application file.
+  </ProjectSlide>
 </ProjectShowcase>
 
 ### Technologies/Products used: ReactJS, GCP, Typescript, Figma, Git. Code is available for reference on Github.
@@ -40,13 +35,13 @@ import portfolio from "../assets/portfolio.png";
 ---
 
 <ProjectShowcase title="Portfolio" nodes={1}>
-	<ProjectSlide photoURL={portfolio} solo>
-		At the moment, the only two projects I have completed are this portfolio
-		website and the bluffs site above. I designed this website in Adobe XD and
-		wrote the code using ReactJS, Chakra UI, and Typescript. Animations are done
-		using CSS. If you are interested in having me build something for your
-		business, send me an email!
-	</ProjectSlide>
+  <ProjectSlide photoURL="/images/portfolio.png" solo>
+    At the moment, the only two projects I have completed are this portfolio
+    website and the bluffs site above. I designed this website in Adobe XD and
+    wrote the code using ReactJS, Chakra UI, and Typescript. Animations are done
+    using CSS. If you are interested in having me build something for your
+    business, send me an email!
+  </ProjectSlide>
 </ProjectShowcase>
 
 ### Code is available for reference on Github (see footer).
