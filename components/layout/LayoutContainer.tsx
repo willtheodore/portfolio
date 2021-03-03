@@ -2,6 +2,7 @@ import { Box, Grid, useBreakpointValue } from "@chakra-ui/react";
 import * as React from "react";
 import { Theme } from "../../contexts/ThemeContext";
 import { Footer } from "../chakra";
+import { useRouter } from "next/router";
 
 import Sidebar from "../Sidebar";
 import ThemeSelector from "../ThemeSelector";
@@ -16,12 +17,8 @@ export default function LayoutContainer({
   toggleFunction,
 }: LayoutContainerProps) {
   const isNotMobile = useBreakpointValue({ base: false, md: true });
-  let isHome: boolean;
-  if (document) {
-    isHome = document.location.pathname === "/";
-  } else {
-    isHome = false;
-  }
+  const router = useRouter();
+  const isHome = router.pathname === "/";
 
   return (
     <div id="app">
