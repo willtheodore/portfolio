@@ -7,8 +7,6 @@ import ProjectShowcase, {
 <Header title="Projects" />
 <Box h="170px" />
 
----
-
 <ProjectShowcase title="Bedford Bluffs" nodes={3} url="www.bedfordbluffs.com">
   <ProjectSlide photoURL="/images/bluffs1.png">
     This project was commissioned by a local swim and tennis club. Their old
@@ -30,22 +28,52 @@ import ProjectShowcase, {
   </ProjectSlide>
 </ProjectShowcase>
 
-### Technologies/Products used: ReactJS, GCP, Typescript, Figma, Git. Code is available for reference on Github.
+### Technologies/Products used: ReactJS, Google Cloud Platform, Typescript, Figma, Git. Code is available for reference on Github.
+
+---
+
+<ProjectShowcase title="NH DECA" nodes={4} url="www.nhdeca.org">
+  <ProjectSlide photoURL="/images/deca1.png">
+    This project was commissioned by the New Hampshire chapter of DECA, a Career
+    Technical Student Organization and nonprofit. I built them an updated site
+    that includes features like a headless CMS, searchable news feed, and a
+    custom photo album that pulls images from twitter using a REST API.
+  </ProjectSlide>
+  <ProjectSlide photoURL="/images/deca2.png">
+    I used Google Firebase for an easy and inexpsneive database for this
+    project. The main other technology used is NEXT JS. This was ideal for this
+    client to optimize Search Engine Optimization (SEO) through static site
+    generation for the news feed. Every time a page is edited or a post is
+    created the site is automatically rebuilt through a hook on Vercel.
+  </ProjectSlide>
+  <ProjectSlide photoURL="/images/deca3.png">
+    The Headless CMS is the only login-gated area of the site. From here posts
+    can be added to the news feed, and pages can be edited. The site is also
+    100% dynamic, so pages can be added and removed from the CMS as well. The
+    only pages that cannot be removed are dynamic features such as the calendar,
+    news feed, or photo album.
+  </ProjectSlide>
+  <ProjectSlide photoURL="/images/deca4.png">
+    The photo album uses the twitter API and a Google Cloud Function to pull any
+    images off of twitter using the hashtag #NHDECA and store the media link in
+    firebase. The result is an albun of related photos from the start date of
+    the website through the current date that have been posted on twitter.
+    Images are paginated through firebase.
+  </ProjectSlide>
+</ProjectShowcase>
+
+### Technologies/Products used: ReactJS, NextJS, Vercel, Twitter API, Firestore, Typescript, Adobe XD, Git. Code is available for reference on Github.
 
 ---
 
 <ProjectShowcase title="Portfolio" nodes={1}>
   <ProjectSlide photoURL="/images/portfolio.png" solo>
-    At the moment, the only two projects I have completed are this portfolio
-    website and the bluffs site above. I designed this website in Adobe XD and
-    wrote the code using ReactJS, Chakra UI, and Typescript. Animations are done
-    using CSS. If you are interested in having me build something for your
-    business, send me an email!
+    I designed this website in Adobe XD and wrote the code using ReactJS, Chakra
+    UI, and Typescript. Animations are done using CSS. If you are interested in
+    having me build something for your business, send me an email!
   </ProjectSlide>
 </ProjectShowcase>
 
 ### Code is available for reference on Github (see footer).
-
----
 
 ---

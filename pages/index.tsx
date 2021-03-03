@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Text, Grid, Flex, Heading } from "@chakra-ui/react";
+import { Text, Grid, Heading } from "@chakra-ui/react";
 
 export default function Home() {
   return (
