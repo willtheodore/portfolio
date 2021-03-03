@@ -16,7 +16,12 @@ export default function LayoutContainer({
   toggleFunction,
 }: LayoutContainerProps) {
   const isNotMobile = useBreakpointValue({ base: false, md: true });
-  const isHome = document && document.location.pathname === "/";
+  let isHome: boolean;
+  if (document) {
+    isHome = document.location.pathname === "/";
+  } else {
+    isHome = false;
+  }
 
   return (
     <div id="app">
