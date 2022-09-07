@@ -43,4 +43,9 @@ export default {
 		fontWeight: "normal",
 		lineHeight: "125%",
 	},
+	smallText: {
+		fontSize: "12px",
+		fontWeight: "normal",
+		lineHeight: "100%"
+	}
 };

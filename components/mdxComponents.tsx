@@ -40,7 +40,7 @@ export function H3(props: MDXProviderProps) {
       textStyle="subHeader"
       {...props}
       ml="22px"
-      mb={{ base: "40px", lg: "20px" }}
+      mb={{ base: "20px", lg: "10px" }}
       display="block"
     />
   );
@@ -70,5 +70,5 @@ export function Bullet(props: MDXProviderProps) {
 }
 
 export function Spacer(props: MDXProviderProps) {
-  return <Box h="50px" display="block" />;
+  return <Box h="30px" display="block" />;
 }

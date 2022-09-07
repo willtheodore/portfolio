@@ -22,10 +22,10 @@ export function Footer() {
       justifyContent={{ base: "space-around", md: "flex-start" }}
     >
       <Text fontSize={["4vw", "20px"]} textStyle="body" mr={["0", "20px"]}>
-        © Will Theodore 2021
+        © Will Theodore 2022
       </Text>
       <MediaLink
-        url="https://www.instagram.com/will.theodore"
+        url="https://www.instagram.com/wjtheo"
         icon={FaInstagram}
       />
       <MediaLink url="https://www.twitter.com/willltheodore" icon={FaTwitter} />
