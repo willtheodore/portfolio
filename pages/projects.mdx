@@ -3,77 +3,42 @@ import { Box } from "@chakra-ui/react";
 import ProjectShowcase, {
   ProjectSlide,
 } from "../components/ProjectShowcase.tsx";
+import ProjectGrid, { ProjectCell } from "../components/ProjectGrid.tsx"
 
 <Header title="Projects" />
 <Box h="170px" />
 
-<ProjectShowcase title="Bedford Bluffs" nodes={3} url="www.bedfordbluffs.com">
-  <ProjectSlide photoURL="/images/bluffs1.png">
-    This project was commissioned by a local swim and tennis club. Their old
-    website was outdated and in need of an update. I built a new one that
-    included interactive web application features such as posting and
-    commenting, multiple user authentication levels, and an interactive
-    calendar.
-  </ProjectSlide>
-  <ProjectSlide photoURL="/images/bluffs2.png">
-    The project was built using React JS and Google Cloud Platform. An account
-    is required to access the “members” tab which contains the interactive
-    features used in the operations of the club.
-  </ProjectSlide>
-  <ProjectSlide photoURL="/images/bluffs3.png">
-    The Admin Center is only accessible to users designated as an admin. It
-    contains pages to create and edit posts, manage calendar events, authorize
-    other admins, and upload files to create job postings or update the
-    membership application file.
-  </ProjectSlide>
-</ProjectShowcase>
+<ProjectGrid numProjects={4}>
 
-### Technologies/Products used: ReactJS, Google Cloud Platform, Typescript, Figma, Git. Code is available for reference on Github.
+  <ProjectCell
+    imagePath="/images/deca1.png"
+    projectTitle="NH DECA"
+    projectSlug="nhdeca"
+    projectURL="http://www.nhdeca.org"
+    githubURL="https://github.com/willtheodore/nh-deca"
+  />
 
----
+  <ProjectCell
+    imagePath="/images/bluffs1.png"
+    projectTitle="Bedford Bluffs"
+    projectSlug="bluffs"
+    projectURL="https://www.bedfordbluffs.com"
+    githubURL="https://github.com/willtheodore/bluffsTS"
+  />
 
-<ProjectShowcase title="NH DECA" nodes={4} url="www.nhdeca.org">
-  <ProjectSlide photoURL="/images/deca1.png">
-    This project was commissioned by the New Hampshire association of DECA, a
-    Career Technical Student Organization and nonprofit. I built them an updated
-    site that includes features like a headless CMS, searchable news feed, and a
-    custom photo album that pulls images from twitter using a REST API.
-  </ProjectSlide>
-  <ProjectSlide photoURL="/images/deca2.png">
-    I used Google Firebase for an easy and inexpsneive database for this
-    project. The main other technology used is NEXT JS. This was ideal for this
-    client to optimize Search Engine Optimization (SEO) through static site
-    generation for the news feed. Every time a page is edited or a post is
-    created the site is automatically rebuilt through a hook on Vercel.
-  </ProjectSlide>
-  <ProjectSlide photoURL="/images/deca3.png">
-    The Headless CMS is the only login-gated area of the site. From here posts
-    can be added to the news feed, and pages can be edited. The site is also
-    100% dynamic, so pages can be added and removed from the CMS as well. The
-    only pages that cannot be removed are dynamic features such as the calendar,
-    news feed, or photo album.
-  </ProjectSlide>
-  <ProjectSlide photoURL="/images/deca4.png">
-    The photo album uses the twitter API and a Google Cloud Function to pull any
-    images off of twitter using the hashtag #NHDECA and store the media link in
-    firebase. The result is an albun of related photos from the start date of
-    the website through the current date that have been posted on twitter.
-    Images are paginated through firebase.
-  </ProjectSlide>
-</ProjectShowcase>
+  <ProjectCell
+    imagePath="/images/calculator.png"
+    projectTitle="Revenue Calculator"
+    projectSlug="calculator"
+    projectURL="https://www.mealme.ai"
+  />
 
-### Technologies/Products used: ReactJS, NextJS, Vercel, Twitter API, Firestore, Typescript, Adobe XD, Git. Code is available for reference on Github.
+  <ProjectCell
+    imagePath="/images/portfolio.png"
+    projectTitle="Portoflio"
+    projectSlug="portfolio"
+    projectURL="https://www.willtheodore.com"
+    githubURL="https://github.com/willtheodore/portfolio"
+  />
 
----
-
-<ProjectShowcase title="Portfolio" nodes={1}>
-  <ProjectSlide photoURL="/images/portfolio.png" solo>
-    I designed this website in Adobe XD and wrote the code using ReactJS, Chakra
-    UI, and Typescript. Animations are done using CSS. If you are interested in
-    having me build something for your business, send me an email!
-  </ProjectSlide>
-</ProjectShowcase>
-
-### Code is available for reference on Github (see footer).
-
----
+</ProjectGrid>

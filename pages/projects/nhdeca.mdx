@@ -1,0 +1,113 @@
+import Header from "../../components/Header.tsx"
+import { Box, Link, chakra } from "@chakra-ui/react"
+import ThemeContext from "../../contexts/ThemeContext.ts"
+
+<Header title="NH DECA" />
+<Box h={{ base: "200px", sm: "200px", lg: "170px" }} />
+
+<Link pl="20px" href="/projects">{"< Go Back "}</Link>
+
+---
+
+<chakra.a
+  ml="20px"
+  bgColor={React.useContext(ThemeContext)}
+  color="gray.50"
+  px="20px"
+  py="5px"
+  borderRadius="3px"
+  fontWeight="bold"
+  fontSize="30px"
+  href="http://www.nhdeca.org"
+  target="_blank"
+>VIEW LIVE PROJECT</chakra.a>
+
+---
+
+<chakra.a
+  ml="20px"
+  bgColor={React.useContext(ThemeContext)}
+  color="gray.50"
+  px="20px"
+  py="5px"
+  borderRadius="3px"
+  fontWeight="bold"
+  fontSize="30px"
+  href="https://github.com/willtheodore/nh-deca"
+  target="_blank"
+>VIEW CODE</chakra.a>
+
+---
+
+<chakra.img
+  src="/images/deca1.png"
+  border="5px solid"
+  borderColor={React.useContext(ThemeContext)}
+  borderRadius="2px"
+  ml="20px"
+  w="85%"
+  mb="20px"
+/>
+
+This project was commissioned by the New Hampshire association of DECA, a
+Career Technical Student Organization and nonprofit. I built them an updated
+site that includes features like a headless CMS, searchable news feed, and a
+custom photo album that pulls images from twitter using a REST API.
+
+<chakra.img
+  src="/images/deca2.png"
+  border="5px solid"
+  borderColor={React.useContext(ThemeContext)}
+  borderRadius="2px"
+  ml="20px"
+  w="85%"
+  my="20px"
+/>
+
+The Headless CMS is the only login-gated area of the site. From here posts
+    can be added to the news feed, and pages can be edited. The site is also
+    100% dynamic, so pages can be added and removed from the CMS as well. The
+    only pages that cannot be removed are dynamic features such as the calendar,
+    news feed, or photo album.
+
+<chakra.img
+  src="/images/deca3.png"
+  border="5px solid"
+  borderColor={React.useContext(ThemeContext)}
+  borderRadius="2px"
+  ml="20px"
+  w="85%"
+  my="20px"
+/>
+
+The photo album uses the twitter API and a Google Cloud Function to pull any
+    images off of twitter using the hashtag #NHDECA and store the media link in
+    firebase. The result is an albun of related photos from the start date of
+    the website through the current date that have been posted on twitter.
+    Images are paginated through firebase.
+
+---
+
+NOTE: This project is no longer actively maintained; the API token may be expired.
+
+<chakra.img
+  src="/images/deca4.png"
+  border="5px solid"
+  borderColor={React.useContext(ThemeContext)}
+  borderRadius="2px"
+  ml="20px"
+  w="85%"
+  my="20px"
+/>
+
+---
+
+## Technologies/Products used:
+
+---
+
+> ReactJS, NextJS, Vercel, Twitter API, Firestore, Typescript, Adobe XD, Git.
+
+---
+
+---

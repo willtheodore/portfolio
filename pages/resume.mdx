@@ -1,7 +1,8 @@
 import Header from "../components/Header.tsx";
+import Link from "next/link"
 import LabeledIndent from "../components/LabeledIndent.tsx";
 import { HeaderWithContext } from "../components/chakra.ts";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 
 <Header title="Resume" />
 <Box h={{ base: "140px", sm: "170px", lg: "170px" }} />
@@ -16,7 +17,7 @@ import { Box } from "@chakra-ui/react";
   Intermediate Microeconomics
 </LabeledIndent>
 <LabeledIndent title="Relevant Courses:">
-  Computer Architecture/Machine Level Programming*, Machine Learning*,
+  Computer Architecture/Machine Level Programming*, Directed Research: CS*,
   Econometrics*, Analysis of Algorithms*, Data Structures/Algorithms, Linear Algebra
 </LabeledIndent>
 <LabeledIndent smaller><em>* = current coursework</em></LabeledIndent>
@@ -26,11 +27,11 @@ import { Box } from "@chakra-ui/react";
 <LabeledIndent title="Python:">
   Used in backend during internship, flask, asyncio, requests, pymongo, pandas
 </LabeledIndent>
-<LabeledIndent title="Java:">
+<LabeledIndent title="JavaScript:">
   Experience with React, Typescript, Next.js, async/await, promises, REST APIs
 </LabeledIndent>
-<LabeledIndent title="JavaScript:">
-  Used extensively in Emory coursework, experience building data structures, and algorithms
+<LabeledIndent title="Java:">
+  Used extensively in Emory coursework for building data structures and solving algorithm problems
 </LabeledIndent>
 <LabeledIndent title="Additional:">
   Git, C*, Assembly*, Node.js, MongoDB, HTML/CSS, GCP/Firebase, Swift/SwiftUI
@@ -70,7 +71,7 @@ import { Box } from "@chakra-ui/react";
 
 > Built content management sites to support content updates and page additions by clients
 
-> All projects and links to view code are available on my portfolio website in the header
+> More detail on every project is available in the <Link href="/projects"><strong style={{ fontWeight: "bold", cursor: "pointer" }}>projects section</strong></Link> of my website.
 
 ---
 

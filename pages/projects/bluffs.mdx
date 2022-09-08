@@ -1,0 +1,97 @@
+import Header from "../../components/Header.tsx"
+import { Box, Link, chakra } from "@chakra-ui/react"
+import ThemeContext from "../../contexts/ThemeContext.ts"
+
+<Header title="Bedford Bluffs" />
+<Box h={{ base: "200px", sm: "200px", lg: "170px" }} />
+
+<Link pl="20px" href="/projects">{"< Go Back "}</Link>
+
+---
+
+<chakra.a
+  ml="20px"
+  bgColor={React.useContext(ThemeContext)}
+  color="gray.50"
+  px="20px"
+  py="5px"
+  borderRadius="3px"
+  fontWeight="bold"
+  fontSize="30px"
+  href="https://www.bedfordbluffs.com"
+  target="_blank"
+>VIEW LIVE PROJECT</chakra.a>
+
+---
+
+<chakra.a
+  ml="20px"
+  bgColor={React.useContext(ThemeContext)}
+  color="gray.50"
+  px="20px"
+  py="5px"
+  borderRadius="3px"
+  fontWeight="bold"
+  fontSize="30px"
+  href="https://github.com/willtheodore/bluffsTS"
+  target="_blank"
+>VIEW CODE</chakra.a>
+
+---
+
+<chakra.img
+  src="/images/bluffs1.png"
+  border="5px solid"
+  borderColor={React.useContext(ThemeContext)}
+  borderRadius="2px"
+  ml="20px"
+  w="85%"
+  mb="20px"
+/>
+
+This project was commissioned by a local swim and tennis club. Their old
+website was outdated and in need of an update. I built a new one that
+includes interactive web application features such as posting and
+commenting, multiple user authentication levels, and an interactive
+Calendar.
+
+<chakra.img
+  src="/images/bluffs2.png"
+  border="5px solid"
+  borderColor={React.useContext(ThemeContext)}
+  borderRadius="2px"
+  ml="20px"
+  w="85%"
+  my="20px"
+/>
+
+The project was built using React JS and Google Cloud Platform. An account
+    is required to access the “members” tab which contains the interactive
+    features used in the operations of the club. Each feature on the site was custom built to meet the specific day-to-day needs of the Bluffs.
+
+<chakra.img
+  src="/images/bluffs3.png"
+  border="5px solid"
+  borderColor={React.useContext(ThemeContext)}
+  borderRadius="2px"
+  ml="20px"
+  w="85%"
+  my="20px"
+/>
+
+The Admin Center is only accessible to users designated as an admin. It
+    contains pages to create and edit posts, manage calendar events, authorize
+    other admins, and upload files to create job postings or update the
+    membership application file.
+
+---
+
+## Technologies/Products used:
+
+---
+
+> ReactJS, Google Cloud Platform, Firebase, Typescript, Figma, Git.
+
+---
+
+---

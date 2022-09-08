@@ -47,5 +47,13 @@ export default {
 		fontSize: "12px",
 		fontWeight: "normal",
 		lineHeight: "100%"
+	},
+	projectHeader: {
+		fontSize: "48px",
+		fontWeight: "bold",
+	},
+	projectHeaderMobile: {
+		fontSize: "35px",
+		fontWeight: "bold",
 	}
 };
